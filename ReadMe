@@ -2,10 +2,10 @@
 
 Aufage Bonus:
 
-Computer und Roboter können heute schon viele Aufgaben gut erledigen:
+Computer und Roboter können heute schon viele Aufgaben gut erledigen
 Sie schreiben Texte, helfen beim Programmieren und können einfache Videos erstellen. Sie arbeiten auch in Fabriken.
 
-Schwieriger sind Aufgaben im Allgemeinen, bei denen man denken oder Entscheidungen treffen muss.
+Schwer sind Aufgaben, wenn man selbst nachdenken oder etwas auswählen muss.
 Auch völlig selbstfahrende Autos sind noch nicht überall sicher wie in besteimmte situation oder bestimmte zeit.
 
 KI macht es leicht, Videos oder Texte zu erstellen, das spart Zeit.
@@ -22,9 +22,8 @@ Die Tiefensuche geht immer so weit wie möglich in eine Richtung, bevor sie zur�
 Breitensuche (BFS):
 Der Weg ist: Würzburg → Nürnberg → München
 
-Die Breitensuche prüft zuerst alle Nachbarstädte von Würzburg, dann deren Nachbarn.
-Sie findet also den kürzesten Weg (nach Anzahl der Strecken).
-Maximal sind etwa 5 Städte gleichzeitig im Speicher, und sie läuft 3 Runden.
+Die Breitensuche schaut zuerst alle Städte an, die direkt neben Würzburg liegen. Dann schaut sie die Nachbarn dieser Städte an. 
+So findet sie den kürzesten Weg mit den wenigsten Strecken. Es sind höchstens etwa 5 Städte gleichzeitig im Speicher, und sie braucht 3 Durchgänge
 
 A*-Suche:
 Der Weg ist: Würzburg → Nürnberg → München
@@ -63,13 +62,6 @@ Mit einer dominierenden Heuristik h₁ braucht die Suche weniger Schritte
 und findet trotzdem denselben optimalen Weg.
 Beispiel:
 Ziel: München, Start: Würzburg
-
-h2(Würzburg) = 0 → keine Schätzung
-h1(Würzburg) = 270 → gute Schätzung (echter Restweg ≈ 270 km)
-
-Beide Heuristiken sind zulässig,
-aber h1 dominiert h2, weil sie größere und genauere Werte hat.
-
-Mit h2 (=0) arbeitet A* wie eine Uniform-Cost-Suche und prüft viele Wege.
-Mit h1 (=270) findet A* den richtigen Weg schneller,
-weil die Schätzung genauer ist.
+h2(Würzburg) = 0 keine Schätzung h1(Würzburg) =270  gute Schätzung(echter Restweg  270 km)
+Beide Heuristiken sind zulässig, aber h1 dominiert h2, weil sie größere und genauere Werte hat.
+Mit h2 (=0) arbeitet A* wie eine Uniform Cost Suche und prüft viele Wege. Mit h1 (=270) findet A* den richtigen Weg schneller, weil die Schätzung genauer ist.
