@@ -1,0 +1,70 @@
+Aufgabe Bonus:
+
+Ich habe ChatGPT zwei Fragen gestellt
+
+Wann wurde Israel gegründet und was geschah damals
+
+Schreibe den Java Code für den Bubble Sort Algorithmus und erkläre kurz wie er funktioniert
+
+Vergleich und Bewertung
+Ich habe die Antworten mit zuverlässigen Quellen wie Wikipedia und einem Informatik Lehrbuch verglichen Beide Antworten waren inhaltlich korrekt vollständig und ohne Fehler
+Die geschichtliche Antwort stimmte mit den bekannten Fakten überein
+Der Bubble Sort Code war technisch korrekt und funktionierte wie beschrieben
+
+
+-----------------------------------------------------------------------------------------------
+
+Aufgabe 01:
+
+1- Minimax-Bewertungen
+
+B (MIN): min(8, 7, 3) → 3
+E (MIN): min(9, 1, 6) → 1
+F (MIN): min(2, 1) → 1
+G (MIN): min(6, 5, 2) → 2
+C (MAX): max(1, 1, 2) → 2
+D (MIN): min(2, 1, 3) → 1
+A (MAX): max(3, 2, 1) → 3
+Endwert an der Wurzel (A): 3
+
+2- Alpha Beta Pruning
+
+Start Alpha A gleich minus unendlich Beta A gleich plus unendlich
+
+B Minimum alle drei Blätter werden untersucht B gleich 3 Alpha A gleich 3
+
+C Minimum erstes Kind E gleich 1 Beta C gleich 1
+da Alpha A gleich 3 größer gleich Beta C gleich 1 werden F und G abgeschnitten
+
+D Minimum erstes Blatt 2 Beta D gleich 2
+da Alpha A gleich 3 größer gleich Beta D gleich 2 werden die Blätter 1 und 3 abgeschnitten
+
+Pruning bei C F und G und bei D 1 und 3
+
+3- Ordnung für stärkeres Pruning:
+Ja. Wenn bei MAX-Knoten die größten und bei MIN-Knoten die kleinsten Werte zuerst geprüft werden, tritt mehr Pruning auf.
+Beispiel:
+B: (3, 7, 8), C: (E zuerst), D: (1 zuerst)
+
+-----------------------------------------------------------------------------------------
+
+Aufgabe 02:  
+
+3- vergleich
+
+Sinnvolles Szenario
+
+Das beste Szenario für einen Vergleich ist die Berechnung des ersten Zugs von einem leeren Spielfeld aus Hier ist der Suchbaum am größten wodurch der Effekt des Prunings maximal sichtbar wird
+
+Vergleich
+
+Um den Vergleich durchzuführen benötigt man auch die ursprüngliche Minimax Funktion ohne Alpha Beta aber mit Node Counter und eine find best move ohne pruning
+Ergebnis der Ausführung für ein leeres Brett
+Standard Minimax 549946 Knoten
+Mit Alpha Beta Pruning 20938 Knoten
+
+Analyse
+
+Alpha Beta Pruning reduziert die Anzahl der untersuchten Knoten drastisch Im teuersten Szenario leeres Brett werden über 96 Prozent der Knotenberechnungen eingespart da redundante Zweige des Spielbaums nicht mehr untersucht werden müssen
+
+
