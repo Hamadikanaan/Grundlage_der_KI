@@ -1,67 +1,43 @@
-Übungen blatt 1
+Viele Menschen fragen sich, ob Systeme wie ChatGPT wirklich intelligent sind. ChatGPT kann sehr gut Texte schreiben und auf Fragen antworten. Trotzdem ist es keine echte Intelligenz. Es versteht nicht, was es sagt. Es arbeitet mit vielen Daten und erkennt Muster in der Sprache.
 
-Aufage Bonus:
+Heute gibt es keine wirklich intelligenten Maschinen. Es gibt nur schwache KI, die Aufgaben gut löst, aber nicht selbst denkt.
 
-Computer und Roboter können heute schon viele Aufgaben gut erledigen
-Sie schreiben Texte, helfen beim Programmieren und können einfache Videos erstellen. Sie arbeiten auch in Fabriken.
+Doch KI kann auch Fehler machen oder missbraucht werden, zum Beispiel für Code oder falsche Nachrichten.
 
-Schwer sind Aufgaben, wenn man selbst nachdenken oder etwas auswählen muss.
-Auch völlig selbstfahrende Autos sind noch nicht überall sicher wie in besteimmte situation oder bestimmte zeit.
 
-KI macht es leicht, Videos oder Texte zu erstellen, das spart Zeit.
-Menschen nutzen KI an der Uni und im Beruf das ist hilfreich.
 
-Selbstfahrende Autos müssen noch lernen, richtig mit der Polizei, Unfällen, bestimmten Situationen, Zeiten oder Wetterbedingungen umzugehen.
+Aufgabe 01: d
 
-Aufgabe 02:
+DTL.01 – Entscheidungsbäume mit CAL3 und ID3
 
-Tiefensuche (DFS):
-Der Weg ist: Würzburg → Erfurt → Nürnberg → München
-Die Tiefensuche geht immer so weit wie möglich in eine Richtung, bevor sie zurückgeht. Sie braucht hier etwa 4 Schritte, und es sind höchstens 4 Orte gleichzeitig im Speicher.
+In dieser Aufgabe sollen zwei Entscheidungsbäume mit den Verfahren CAL3 und ID3 trainiert werden. Die Trainingsdaten zeigen die Wahlpräferenzen von sieben Personen mit den Attributen Alter, Einkommen und Bildung sowie dem Zielattribut Kandidat (O oder M).
 
-Breitensuche (BFS):
-Der Weg ist: Würzburg → Nürnberg → München
+ID3-Verfahren:
+ID3 wählt in jedem Schritt das Attribut mit dem größten Informationsgewinn und teilt die Daten danach auf.
+Die Entropie des Gesamtdatensatzes beträgt 0,985. Der höchste Informationsgewinn liegt bei Bildung, daher wird dieses Attribut an der Wurzel gewählt.
+Nach weiteren Aufteilungen ergibt sich folgender Baum:
 
-Die Breitensuche schaut zuerst alle Städte an, die direkt neben Würzburg liegen. Dann schaut sie die Nachbarn dieser Städte an. 
-So findet sie den kürzesten Weg mit den wenigsten Strecken. Es sind höchstens etwa 5 Städte gleichzeitig im Speicher, und sie braucht 3 Durchgänge
+Wenn Bildung = Master → O
 
-A*-Suche:
-Der Weg ist: Würzburg → Nürnberg → München
-A* nutzt zusätzlich eine Schätzung, wie weit es bis zum Ziel noch ist (Heuristik).
-Hier braucht A* auch ungefähr 3 Runden und speichert 3–4 Orte gleichzeitig.
+Wenn Bildung = Bachelor und Alter ≥ 35 → M, sonst → O
 
-Darf man die gegebene Heuristik verwenden?
-Nein, die gegebene Heuristik (Schätzungen in der tabelle)darf man nicht verwenden, weil sie falsche Werte enthält.
-Heuristik ist nur dann erlaubt (zulässig), wenn sie nie zu groß schätzt
-sie darf also nie mehr angeben als der echte Restweg.
+Wenn Bildung = Abitur und Einkommen = hoch → O, sonst → M
 
-Zum Beispiel:
-Für Nürnberg → München steht dort 537 km,
-aber der echte kürzeste Weg ist 167 km.
-Das ist zu viel, also überschätzt die Heuristik.
-Wenn eine Heuristik zu groß ist,
-kann A* den falschen (nicht kürzesten) Weg finden –
+Dieser Baum klassifiziert alle sieben Beispiele korrekt (Genauigkeit 100 %).
 
-deshalb ist sie nicht zulässig und auch nicht konsistent.
-ein sicher lösung
-h(n) = 0 für alle orte(ohne münchen)
-Das heißt: Man tut so, als wüsste man nichts über die Reststrecke
+CAL3-Verfahren:
+CAL3 arbeitet ähnlich wie ID3, stoppt aber früher, wenn
 
-Dann arbeitet A* wie eine normale Uniform-Cost-Suche
-und findet den optimalen (kürzesten) Weg:
-Würzburg dann Nürnberg dann München als 103+167 =270km
+die Teilmenge kleiner als S₁ = 4 ist oder
 
-Aufgabe :
+die Reinheit der Daten größer als S₂ = 0,7 ist.
 
-Eine Heuristik h₁(n) dominiert eine Heuristik h₂(n),
-wenn sie immer gleich groß oder größer ist, aber nicht überschätzt.
-Also: h₁(n) ≥ h₂(n) für alle n und beide sind zulässig.
+Dadurch wird der Baum einfacher, aber etwas ungenauer. Der Baum lautet:
 
-In A*:
-Mit einer dominierenden Heuristik h₁ braucht die Suche weniger Schritte
-und findet trotzdem denselben optimalen Weg.
-Beispiel:
-Ziel: München, Start: Würzburg
-h2(Würzburg) = 0 keine Schätzung h1(Würzburg) =270  gute Schätzung(echter Restweg  270 km)
-Beide Heuristiken sind zulässig, aber h1 dominiert h2, weil sie größere und genauere Werte hat.
-Mit h2 (=0) arbeitet A* wie eine Uniform Cost Suche und prüft viele Wege. Mit h1 (=270) findet A* den richtigen Weg schneller, weil die Schätzung genauer ist.
+Wenn Bildung = Master → O
+
+Wenn Bildung = Bachelor → O
+
+Wenn Bildung = Abitur → M
+
+Dieser Baum ist weniger tief und klassifiziert 5 von 7 Beispielen richtig (Genauigkeit etwa 71 %).
