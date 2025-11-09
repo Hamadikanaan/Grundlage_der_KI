@@ -10,10 +10,6 @@ Doch KI kann auch Fehler machen oder missbraucht werden, zum Beispiel für Code 
 
 Aufgabe 01: d
 
-DTL.01 – Entscheidungsbäume mit CAL3 und ID3
-
-In dieser Aufgabe sollen zwei Entscheidungsbäume mit den Verfahren CAL3 und ID3 trainiert werden. Die Trainingsdaten zeigen die Wahlpräferenzen von sieben Personen mit den Attributen Alter, Einkommen und Bildung sowie dem Zielattribut Kandidat (O oder M).
-
 ID3-Verfahren:
 ID3 wählt in jedem Schritt das Attribut mit dem größten Informationsgewinn und teilt die Daten danach auf.
 Die Entropie des Gesamtdatensatzes beträgt 0,985. Der höchste Informationsgewinn liegt bei Bildung, daher wird dieses Attribut an der Wurzel gewählt.
