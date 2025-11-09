@@ -43,3 +43,7 @@ Wenn Bildung = Bachelor → O
 Wenn Bildung = Abitur → M
 
 Dieser Baum ist weniger tief und klassifiziert 5 von 7 Beispielen richtig (Genauigkeit etwa 71 %).
+
+ID3 liefert einen genaueren, aber komplexeren Baum. 
+CAL3 vereinfacht den Baum durch vorzeitiges Stoppen, verliert dadurch etwas an Genauigkeit. 
+Beide Methoden zeigen, wie Entscheidungsbäume aus Daten Muster lernen und Entscheidungen treffen können.
