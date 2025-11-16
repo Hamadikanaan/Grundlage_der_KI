@@ -1,67 +1,137 @@
-Übungen blatt 1
+Aufgabe 1 :
 
-Aufage Bonus:
+Norweger – gelb – Wasser – Kools – Fuchs
+Ukrainer – blau – Tee – Chesterfields – Pferd
+Engländer – rot – Milch – Old Gold – Schnecken
+Spanier – weiß – Orangensaft – Lucky Strike – Hund
+Japaner – grün – Kaffee – Parliaments – Zebra
 
-Computer und Roboter können heute schon viele Aufgaben gut erledigen
-Sie schreiben Texte, helfen beim Programmieren und können einfache Videos erstellen. Sie arbeiten auch in Fabriken.
+Antworten: Wasser trinkt der Norweger. Das Zebra gehört dem Japaner.
 
-Schwer sind Aufgaben, wenn man selbst nachdenken oder etwas auswählen muss.
-Auch völlig selbstfahrende Autos sind noch nicht überall sicher wie in besteimmte situation oder bestimmte zeit.
+###################################################################
 
-KI macht es leicht, Videos oder Texte zu erstellen, das spart Zeit.
-Menschen nutzen KI an der Uni und im Beruf das ist hilfreich.
 
-Selbstfahrende Autos müssen noch lernen, richtig mit der Polizei, Unfällen, bestimmten Situationen, Zeiten oder Wetterbedingungen umzugehen.
+Aufgabe 3:
 
-Aufgabe 02:
+CSP.03: Kantenkonsistenz mit AC-3 - Lösung
 
-Tiefensuche (DFS):
-Der Weg ist: Würzburg → Erfurt → Nürnberg → München
-Die Tiefensuche geht immer so weit wie möglich in eine Richtung, bevor sie zurückgeht. Sie braucht hier etwa 4 Schritte, und es sind höchstens 4 Orte gleichzeitig im Speicher.
+1. Constraint-Graph
+-------------------
+Knoten: v1, v2, v3, v4
+Kanten: {v1, v2}, {v2, v3}, {v1, v3}, {v3, v4}
+Struktur: Dreieck aus v1-v2-v3, v4 ist nur mit v3 verbunden.
 
-Breitensuche (BFS):
-Der Weg ist: Würzburg → Nürnberg → München
+2. AC-3 Algorithmus (Relevante Schritte)
+----------------------------------------
+Start-Domaenen: D = {0, 1, 2, 3, 4, 5} fuer alle.
 
-Die Breitensuche schaut zuerst alle Städte an, die direkt neben Würzburg liegen. Dann schaut sie die Nachbarn dieser Städte an. 
-So findet sie den kürzesten Weg mit den wenigsten Strecken. Es sind höchstens etwa 5 Städte gleichzeitig im Speicher, und sie braucht 3 Durchgänge
+Arc (Kante) | Constraint    | Reduktion (Ergebnis)           | Begruendung
+------------------------------------------------------------------------------------------
+(v1, v2)    | v1 + v2 = 3   | D1 = {0, 1, 2, 3}              | 4+y=3 und 5+y=3 unmoeglich in D
+(v2, v1)    | v1 + v2 = 3   | D2 = {0, 1, 2, 3}              | Analog zu v1
+(v3, v2)    | v2 + v3 <= 3  | D3 = {0, 1, 2, 3}              | Da min(v2)=0, muss v3 <= 3 sein
+(v1, v3)    | v1 <= v3      | Keine Aenderung                | Beide Domaenen identisch {0..3}
+(v3, v4)    | v3 != v4      | Keine Aenderung                | v4 hat genug Ausweichwerte
 
-A*-Suche:
-Der Weg ist: Würzburg → Nürnberg → München
-A* nutzt zusätzlich eine Schätzung, wie weit es bis zum Ziel noch ist (Heuristik).
-Hier braucht A* auch ungefähr 3 Runden und speichert 3–4 Orte gleichzeitig.
+3. Ergebnis-Domaenen (Final)
+----------------------------
+D1 = {0, 1, 2, 3}
+D2 = {0, 1, 2, 3}
+D3 = {0, 1, 2, 3}
+D4 = {0, 1, 2, 3, 4, 5}
 
-Darf man die gegebene Heuristik verwenden?
-Nein, die gegebene Heuristik (Schätzungen in der tabelle)darf man nicht verwenden, weil sie falsche Werte enthält.
-Heuristik ist nur dann erlaubt (zulässig), wenn sie nie zu groß schätzt
-sie darf also nie mehr angeben als der echte Restweg.
 
-Zum Beispiel:
-Für Nürnberg → München steht dort 537 km,
-aber der echte kürzeste Weg ist 167 km.
-Das ist zu viel, also überschätzt die Heuristik.
-Wenn eine Heuristik zu groß ist,
-kann A* den falschen (nicht kürzesten) Weg finden –
+##################################################################
 
-deshalb ist sie nicht zulässig und auch nicht konsistent.
-ein sicher lösung
-h(n) = 0 für alle orte(ohne münchen)
-Das heißt: Man tut so, als wüsste man nichts über die Reststrecke
 
-Dann arbeitet A* wie eine normale Uniform-Cost-Suche
-und findet den optimalen (kürzesten) Weg:
-Würzburg dann Nürnberg dann München als 103+167 =270km
+Aufgabe 4:
 
-Aufgabe :
 
-Eine Heuristik h₁(n) dominiert eine Heuristik h₂(n),
-wenn sie immer gleich groß oder größer ist, aber nicht überschätzt.
-Also: h₁(n) ≥ h₂(n) für alle n und beide sind zulässig.
+Gegeben: alpha = { v1 -> 2 }
 
-In A*:
-Mit einer dominierenden Heuristik h₁ braucht die Suche weniger Schritte
-und findet trotzdem denselben optimalen Weg.
-Beispiel:
-Ziel: München, Start: Würzburg
-h2(Würzburg) = 0 keine Schätzung h1(Würzburg) =270  gute Schätzung(echter Restweg  270 km)
-Beide Heuristiken sind zulässig, aber h1 dominiert h2, weil sie größere und genauere Werte hat.
-Mit h2 (=0) arbeitet A* wie eine Uniform Cost Suche und prüft viele Wege. Mit h1 (=270) findet A* den richtigen Weg schneller, weil die Schätzung genauer ist.
+Initiale Domaenen:
+D(v1) = {2}
+Alle anderen Variablen vi (i >= 2) haben ihren vollen Wertebereich Di.
+
+(1) Kantenkonsistenz (AC) in alpha
+Für jeden Nachbarn vj von v1 mit einer binaeren Relation R(1,j) gilt:
+Die Domain von vj wird reduziert auf alle Werte, die mit dem Wert 2 von v1 kompatibel sind.
+
+Formuliert:
+D_AC(vj) = alle a in Dj, fuer die das Paar (2, a) in R(1,j) erlaubt ist.
+
+Propagation:
+Nachdem ein D_AC(vj) kleiner geworden ist, muessen auch die Nachbarn vk von vj geprueft werden.
+D_AC(vk) = alle b in Dk, fuer die es ein a in D_AC(vj) gibt, so dass (a, b) in R(j,k) erlaubt ist.
+Dies wird wiederholt, bis keine Domain mehr schrumpft oder eine Domain leer wird.
+
+Domaenen vor AC:
+D(v1) = {2}
+D(vi) = Di fuer alle i >= 2
+
+Domaenen nach AC (schematisch):
+D(v1) = {2}
+Fuer direkte Nachbarn vj: D_AC(vj) = alle Werte, die mit 2 kompatibel sind
+Fuer weiter entfernte Variablen koennen die Domaenen durch Propagation ebenfalls kleiner werden.
+
+(2) Forward Checking (FC) in alpha
+Forward Checking prueft nur direkte Nachbarn von v1.
+
+D_FC(vj) = alle a in Dj, fuer die (2, a) in R(1,j) erlaubt ist.
+
+Alle anderen Variablen vi bleiben unveraendert:
+D_FC(vi) = Di fuer alle Nicht-Nachbarn von v1.
+
+Vergleich zu (1):
+Bei den direkten Nachbarn ist AC und FC gleich: D_FC(vj) = D_AC(vj).
+Bei allen anderen Variablen wirkt AC staerker, weil es weiter propagiert, FC aber nicht.
+
+Fazit:
+Im Allgemeinen gilt: D_AC(vi) ist eine Teilmenge von D_FC(vi).
+AC kann Domaenen also weiter einschraenken als Forward Checking.
+
+
+##################################################################
+
+Aufgabe 5: 
+
+CSP Modellierung – Indoor-Spielplatz
+
+Abstraktion:
+Die Halle ist 40 x 100 Meter gross, Raster 1 Meter.
+Objekte: Go-Kart-Bahn (10x30), Hüpfburg (12x12), Kletterberg (10x10), Bar (8x16), Entspannungszone (8x12).
+Regeln: 1 Meter Sicherheitsabstand, 3 Meter Ruheabstand zur Entspannungszone, Notausgänge müssen frei bleiben, die Bar soll nahe am Eingang sein, vom Barbereich muss man den Kletterberg sehen können.
+
+Variablen:
+Fuer jedes Objekt gibt es eine Position (x, y) und eventuell eine Orientierung (quer oder hoch).
+
+Domänen:
+Alle erlaubten Positionen innerhalb der Halle.
+
+Constraints:
+
+Jedes Objekt muss innerhalb der Halle stehen.
+
+Objekte dürfen sich nicht überlappen und müssen 1 Meter Abstand halten.
+
+Notausgaenge dürfen nicht blockiert werden.
+
+Die Bar muss in der Naehe des Eingangs stehen.
+
+Die Sichtlinie von der Bar zum Kletterberg muss frei sein.
+
+Die Entspannungszone muss mindestens 3 Meter Abstand zu Go-Kart-Bahn und Huepfburg haben.
+
+Beispiel-Loesung (gueltig):
+
+Bar: 8x16 Meter, Position (16, 0), Orientierung hoch
+Kletterberg: 10x10 Meter, Position (15, 40), Orientierung quer
+Go-Kart-Bahn: 10x30 Meter, Position (30, 60), Orientierung hoch
+Huepfburg: 12x12 Meter, Position (2, 60), Orientierung quer
+Entspannungszone: 8x12 Meter, Position (2, 30), Orientierung quer
+
+Alle Abstaende eingehalten, Sichtlinie frei, Notausgaenge frei.
+
+Suchverfahren:
+MAC: reduziert die moeglichen Positionen durch Konsistenzpruefungen.
+Min-Conflicts: startet zufaellig und minimiert Konflikte schrittweise.
