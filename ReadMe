@@ -1,67 +1,8 @@
-Übungen blatt 1
+Am Montag war ich in einer Gruppe mit zwei Studierenden aus Pakistan. Wir haben uns im Zoom-Meeting kurz unterhalten und unsere Discord-Namen ausgetauscht, 
+damit wir die Aufgabe zusammen machen können. Am Anfang sah alles gut aus, aber im Laufe der Woche wurde die Kommunikation sehr schwierig. 
+Wir konnten uns nicht gut erreichen, und oft hat niemand rechtzeitig geantwortet. Dadurch konnten wir nicht richtig zusammenarbeiten.
 
-Aufage Bonus:
+Deswegen habe ich versucht, eine andere Gruppe zu finden. Ich habe mit der Gruppe von Dennis gesprochen, aber sie haben mir gesagt, dass es nicht möglich ist, bei ihnen mitzumachen. 
+Sie hatten die Aufgabe schon fertig gemacht, das Video bereits aufgenommen und alles abgegeben.
 
-Computer und Roboter können heute schon viele Aufgaben gut erledigen
-Sie schreiben Texte, helfen beim Programmieren und können einfache Videos erstellen. Sie arbeiten auch in Fabriken.
-
-Schwer sind Aufgaben, wenn man selbst nachdenken oder etwas auswählen muss.
-Auch völlig selbstfahrende Autos sind noch nicht überall sicher wie in besteimmte situation oder bestimmte zeit.
-
-KI macht es leicht, Videos oder Texte zu erstellen, das spart Zeit.
-Menschen nutzen KI an der Uni und im Beruf das ist hilfreich.
-
-Selbstfahrende Autos müssen noch lernen, richtig mit der Polizei, Unfällen, bestimmten Situationen, Zeiten oder Wetterbedingungen umzugehen.
-
-Aufgabe 02:
-
-Tiefensuche (DFS):
-Der Weg ist: Würzburg → Erfurt → Nürnberg → München
-Die Tiefensuche geht immer so weit wie möglich in eine Richtung, bevor sie zurückgeht. Sie braucht hier etwa 4 Schritte, und es sind höchstens 4 Orte gleichzeitig im Speicher.
-
-Breitensuche (BFS):
-Der Weg ist: Würzburg → Nürnberg → München
-
-Die Breitensuche schaut zuerst alle Städte an, die direkt neben Würzburg liegen. Dann schaut sie die Nachbarn dieser Städte an. 
-So findet sie den kürzesten Weg mit den wenigsten Strecken. Es sind höchstens etwa 5 Städte gleichzeitig im Speicher, und sie braucht 3 Durchgänge
-
-A*-Suche:
-Der Weg ist: Würzburg → Nürnberg → München
-A* nutzt zusätzlich eine Schätzung, wie weit es bis zum Ziel noch ist (Heuristik).
-Hier braucht A* auch ungefähr 3 Runden und speichert 3–4 Orte gleichzeitig.
-
-Darf man die gegebene Heuristik verwenden?
-Nein, die gegebene Heuristik (Schätzungen in der tabelle)darf man nicht verwenden, weil sie falsche Werte enthält.
-Heuristik ist nur dann erlaubt (zulässig), wenn sie nie zu groß schätzt
-sie darf also nie mehr angeben als der echte Restweg.
-
-Zum Beispiel:
-Für Nürnberg → München steht dort 537 km,
-aber der echte kürzeste Weg ist 167 km.
-Das ist zu viel, also überschätzt die Heuristik.
-Wenn eine Heuristik zu groß ist,
-kann A* den falschen (nicht kürzesten) Weg finden –
-
-deshalb ist sie nicht zulässig und auch nicht konsistent.
-ein sicher lösung
-h(n) = 0 für alle orte(ohne münchen)
-Das heißt: Man tut so, als wüsste man nichts über die Reststrecke
-
-Dann arbeitet A* wie eine normale Uniform-Cost-Suche
-und findet den optimalen (kürzesten) Weg:
-Würzburg dann Nürnberg dann München als 103+167 =270km
-
-Aufgabe :
-
-Eine Heuristik h₁(n) dominiert eine Heuristik h₂(n),
-wenn sie immer gleich groß oder größer ist, aber nicht überschätzt.
-Also: h₁(n) ≥ h₂(n) für alle n und beide sind zulässig.
-
-In A*:
-Mit einer dominierenden Heuristik h₁ braucht die Suche weniger Schritte
-und findet trotzdem denselben optimalen Weg.
-Beispiel:
-Ziel: München, Start: Würzburg
-h2(Würzburg) = 0 keine Schätzung h1(Würzburg) =270  gute Schätzung(echter Restweg  270 km)
-Beide Heuristiken sind zulässig, aber h1 dominiert h2, weil sie größere und genauere Werte hat.
-Mit h2 (=0) arbeitet A* wie eine Uniform Cost Suche und prüft viele Wege. Mit h1 (=270) findet A* den richtigen Weg schneller, weil die Schätzung genauer ist.
+Ab nächster Woche werde ich mein Team wechseln und mit dem Team von Dennis Voß weiterarbeiten. Ich hoffe, dass die Zusammenarbeit dort besser klappt und wir gut kommunizieren können.
